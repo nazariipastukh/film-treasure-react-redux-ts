@@ -1,0 +1,17 @@
+.card {
+    width: 19.5vw;
+    height: 70vh;
+    margin: 1.5vw;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: ease-in, 0.5s;
+}
+
+.card:hover {
+    transform: translate(0, -10px);
+}
+
+.card img {
+    height: 60vh;
+    border-radius: 15px;
+}
