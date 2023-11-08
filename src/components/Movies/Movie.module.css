@@ -5,7 +5,9 @@
     border-radius: 15px;
     cursor: pointer;
     transition: ease-in, 0.5s;
+    position: relative;
 }
+
 
 .card:hover {
     transform: translate(0, -10px);
@@ -14,4 +16,39 @@
 .card img {
     height: 60vh;
     border-radius: 15px;
+}
+
+.rating {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 58vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    opacity: 0;
+    border-radius: 15px;
+    transition: ease-in 0.2s;
+    text-align: left;
+    padding-bottom: 2vh;
+}
+
+.rating:hover {
+    opacity: 1;
+}
+
+p {
+    margin-left: 0.5vw;
+    font-family: 'Mona-Sans', sans-serif;
+    color: #282634;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.rate {
+    color: #f8f7f4;
+    margin: 0 0 1vh 0;
 }

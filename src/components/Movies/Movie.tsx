@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton/Skeleton";
 
@@ -14,6 +14,7 @@ interface IProps {
 export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
+    const [isActive, setIsActive] = useState(false)
 
     return (
         <div className={styles.card}>
@@ -24,10 +25,19 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                         <Skeleton animation="wave" variant="text" width={'19.5vw'} sx={{fontSize: '3rem'}}/>
                     </div>
                 ) : (
-                    <div onClick={() => navigate(`/movie/${id}`, {state: id})}>
+                    <div onMouseEnter={() => setIsActive(true)}
+                         onMouseLeave={() => setIsActive(false)}
+                         onClick={() => navigate(`/movie/${id}`, {state: id})}>
+
                         <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
                         <p>{title}</p>
-                        <StarRatingComponent vote={vote_average}/>
+
+                        {isActive &&
+                            <div className={styles.rating}>
+                                <p className={styles.rate}>{vote_average}</p>
+                                <StarRatingComponent divider={2} numberOfStars={5} vote={vote_average}/>
+                            </div>
+                        }
                     </div>
                 )
             }

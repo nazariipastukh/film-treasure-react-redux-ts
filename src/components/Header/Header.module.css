@@ -1,9 +1,9 @@
 .header {
-    height: 10vh;
+    height: 11vh;
     background-color: #f8f7f4;
     display: flex;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     width: 100vw;

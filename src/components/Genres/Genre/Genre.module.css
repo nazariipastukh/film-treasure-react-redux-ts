@@ -1,0 +1,10 @@
+.genre{
+    border-radius: 15px;
+    padding: 5px 12px;
+    background: white;
+    font-family: 'Mona-Sans', sans-serif;
+    font-weight: 400;
+    margin: 0.7vw 0.7vw 0 0;
+    font-size: 14px;
+    cursor: pointer;
+}
