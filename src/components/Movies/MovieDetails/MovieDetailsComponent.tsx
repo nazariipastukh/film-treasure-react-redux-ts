@@ -21,8 +21,8 @@ export const MovieDetailsComponent: FC<IProps> = ({id}) => {
             setMovieDetails(data)
             setShowSkeleton(false)
         })
-    },[])
-  
+    }, [id])
+
     return (
         <div>
             {

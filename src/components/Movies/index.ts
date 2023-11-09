@@ -1,2 +1,2 @@
-export * from './Movie'
-export * from './MoviesList'
+export * from './Movie/Movie'
+export * from './MovieList/MoviesList'

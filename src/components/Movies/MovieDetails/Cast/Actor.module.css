@@ -1,0 +1,19 @@
+.actorCard {
+    min-height: 25vh;
+    width: calc(30%);
+    margin: 0.5vh
+}
+
+.actorCard img {
+    height: 20vh;
+    border-radius: 10px;
+}
+
+.actorCard p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.characterName {
+    font-weight: 300;
+}

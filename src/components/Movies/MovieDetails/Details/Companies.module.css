@@ -1,0 +1,9 @@
+.companyName {
+}
+
+.companyName p {
+    margin: 0.5vh 0 1.5vh 0;
+    font-family: 'Mona-Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}

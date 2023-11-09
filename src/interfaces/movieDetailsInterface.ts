@@ -1,8 +1,13 @@
+import {ICompany} from "./companyInterface";
+
 export interface IMovieDetails {
     adult: boolean
     backdrop_path: string
     budget: number
-    genres: []
+    genres: {
+        id: number,
+        name: string
+    }[]
     homepage: string
     id: number
     imdb_id: string
@@ -11,8 +16,11 @@ export interface IMovieDetails {
     overview: string
     popularity: number
     poster_path: string
-    production_companies: []
-    production_countries: []
+    production_companies: ICompany[]
+    production_countries: {
+        iso_3166_1: string
+        name: string
+    } []
     release_date: string
     revenue: number
     runtime: number

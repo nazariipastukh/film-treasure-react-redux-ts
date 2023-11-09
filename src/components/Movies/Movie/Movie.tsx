@@ -2,8 +2,8 @@ import {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton/Skeleton";
 
-import {StarRatingComponent} from "../Rating";
-import {IMovie} from "../../interfaces/movieInterface";
+import {StarRatingComponent} from "../../Rating";
+import {IMovie} from "../../../interfaces/movieInterface";
 import styles from './Movie.module.css'
 
 interface IProps {
@@ -35,7 +35,10 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                         {isActive &&
                             <div className={styles.rating}>
                                 <p className={styles.rate}>{vote_average}</p>
-                                <StarRatingComponent divider={2} numberOfStars={5} vote={vote_average}/>
+                                <StarRatingComponent
+                                    divider={2} numberOfStars={5} vote={vote_average}
+                                    starDimension={'20px'} starSpacing={'10px'}
+                                />
                             </div>
                         }
                     </div>

@@ -5,15 +5,17 @@ interface IProps {
     vote: number
     divider: number
     numberOfStars: number
+    starDimension: string
+    starSpacing: string
 }
 
-export const StarRatingComponent: FC<IProps> = ({vote, divider, numberOfStars}) => {
+export const StarRatingComponent: FC<IProps> = ({vote, divider, numberOfStars, starDimension, starSpacing}) => {
     return (
         <StarRatings
             rating={vote / divider}
             numberOfStars={numberOfStars}
-            starDimension="20px"
-            starSpacing="10px"
+            starDimension={starDimension}
+            starSpacing={starSpacing}
             starRatedColor='#FDCC0D'
             starEmptyColor='#e3e1e1'
         />

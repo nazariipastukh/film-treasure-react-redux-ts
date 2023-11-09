@@ -4,7 +4,11 @@
     background: white;
     font-family: 'Mona-Sans', sans-serif;
     font-weight: 400;
-    margin: 0.7vw 0.7vw 0 0;
+    margin: 0 0.7vw 1vh 0;
     font-size: 14px;
     cursor: pointer;
+}
+
+.genre:hover{
+    background-color: #e7f0fd;
 }

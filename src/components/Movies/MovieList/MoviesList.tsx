@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 
-import {moviesService} from "../../services/moviesService";
-import {Movie} from "./Movie";
-import {IMovie} from "../../interfaces/movieInterface";
+import {moviesService} from "../../../services/moviesService";
+import {Movie} from "../Movie/Movie";
+import {IMovie} from "../../../interfaces/movieInterface";
 import styles from './MoviesList.module.css'
 
 export const MoviesList = () => {

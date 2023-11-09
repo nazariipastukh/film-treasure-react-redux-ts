@@ -7,7 +7,9 @@ const movie = `/movie`
 const urls = {
     movies,
     genres,
-    byId: (id: number) => `${movie}/${id}`
+    byId: (id: number) => `${movie}/${id}`,
+    cast: (id: number) => `${movie}/${id}/credits`,
+    popular: `${movie}/popular`
 }
 
 export {
