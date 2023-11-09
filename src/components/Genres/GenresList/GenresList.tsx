@@ -1,7 +1,7 @@
 export const GenresList = () => {
     return (
-        <div>
+        <section>
             GenresList
-        </div>
+        </section>
     );
 };

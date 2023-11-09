@@ -33,7 +33,7 @@
     position: absolute;
     margin-top: 45vh;
     width: 99.5vw;
-    min-height: 95vh;
+    min-height: 100vh;
     z-index: 3;
     border-radius: 20px;
     background-color: #f8f7f4;
@@ -58,7 +58,7 @@
 
 .content {
     width: 100vw;
-    padding: 10vh 5vw;
+    padding: 5vh 5vw;
     display: flex;
 }
 
@@ -168,13 +168,11 @@
 .popular {
     position: absolute;
     margin-top: 170vh;
-    width: 91.5vw;
-    height: 54vh;
+    width: 99.5vw;
+    height: 57vh;
     z-index: 3;
     border-radius: 20px 20px 0 0;
     background-color: #f8f7f4;
     box-shadow: 4px -80px 50px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    padding: 3vh 4vw;
+    padding: 3vh 0 0 0;
 }

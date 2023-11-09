@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from "react";
 
-import {moviesService} from "../../../services/moviesService";
+import {moviesService} from "../../../services";
 import {MovieDetails} from "./MovieDetails";
 import {IMovieDetails} from "../../../interfaces/movieDetailsInterface";
 
@@ -24,12 +24,12 @@ export const MovieDetailsComponent: FC<IProps> = ({id}) => {
     }, [id])
 
     return (
-        <div>
+        <section>
             {
                 movieDetails && (
                     <MovieDetails movieDetails={movieDetails} showSkeleton={showSkeleton}/>
                 )
             }
-        </div>
+        </section>
     );
 };

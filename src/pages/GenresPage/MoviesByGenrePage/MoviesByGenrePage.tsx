@@ -1,7 +1,7 @@
 export const MoviesByGenrePage = () => {
     return (
         <div>
-           ccecececececec
+           f
         </div>
     );
 };

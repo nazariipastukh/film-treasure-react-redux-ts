@@ -6,12 +6,12 @@ import styles from './Header.module.css'
 
 export const Header = () => {
     return (
-        <div className={styles.header}>
-            <div className={styles.links}>
+        <header className={styles.header}>
+            <nav className={styles.links}>
                 <NavLink to={'/main'}> Main Page </NavLink>
                 <NavLink to={'/movies'}> Movies </NavLink>
                 <NavLink to={'/genres'}> Genres </NavLink>
-            </div>
+            </nav>
 
             <div className={styles.logo}>
                 <NavLink to={'/main'}>
@@ -25,6 +25,6 @@ export const Header = () => {
                 </div>
                 <UserComponent/>
             </div>
-        </div>
+        </header>
     );
 };

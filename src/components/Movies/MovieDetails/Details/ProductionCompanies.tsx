@@ -9,11 +9,10 @@ interface IProps {
 
 export const ProductionCompanies: FC<IProps> = ({production}) => {
     return (
-        <div className={styles.companyName}>
+        <article className={styles.companyName}>
             {
-                production.map(company => <div><p>{company.name}</p></div>
-                )
+                production.map(company => <div><p>{company.name}</p></div>)
             }
-        </div>
+        </article>
     );
 };

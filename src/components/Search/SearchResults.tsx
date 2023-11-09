@@ -1,7 +1,7 @@
 export const SearchResults = () => {
     return (
-        <div>
+        <section>
             SearchResults
-        </div>
+        </section>
     );
 };

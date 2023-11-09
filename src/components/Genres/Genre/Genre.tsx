@@ -1,7 +1,7 @@
 import {FC} from "react";
+import {useNavigate} from "react-router-dom";
 
 import styles from './Genre.module.css'
-import {useNavigate} from "react-router-dom";
 
 interface IProps {
     genre: {
@@ -10,7 +10,7 @@ interface IProps {
     }
 }
 
-export const Genre: FC<IProps>  = ({genre}) => {
+export const Genre: FC<IProps> = ({genre}) => {
     const {id, name} = genre
 
     const navigate = useNavigate()

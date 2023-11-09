@@ -1,0 +1,9 @@
+.moviesBlockWrapper {
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    min-height: 30vh;
+    background-color: #f8f7f4;
+    padding: 1vh 0.5vw 0 0;
+}

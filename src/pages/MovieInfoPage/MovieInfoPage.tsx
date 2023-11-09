@@ -1,13 +1,13 @@
 import {useLocation} from "react-router-dom";
 
-import {MovieDetailsComponent} from "../../components/Movies/MovieDetails";
+import {MovieDetailsComponent} from "../../components/Movies";
 
 export const MovieInfoPage = () => {
     const {state: id} = useLocation()
 
     return (
-        <div>
+        <section>
             <MovieDetailsComponent id={id}/>
-        </div>
+        </section>
     );
 };

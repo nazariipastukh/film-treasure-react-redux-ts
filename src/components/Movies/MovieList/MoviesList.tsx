@@ -1,32 +1,40 @@
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
+import {useSearchParams} from "react-router-dom";
 
-import {moviesService} from "../../../services/moviesService";
-import {Movie} from "../Movie/Movie";
+import {moviesService} from "../../../services";
+import {Movie} from "../Movie";
 import {IMovie} from "../../../interfaces/movieInterface";
 import styles from './MoviesList.module.css'
 
-export const MoviesList = () => {
+interface IProps {
+    handleSetPages: (pages: number) => void
+}
+
+export const MoviesList: FC<IProps> = ({handleSetPages}) => {
     const [movies, setMovies] = useState<IMovie[]>([])
     const [showSkeleton, setShowSkeleton] = useState(false);
+    const [query] = useSearchParams({page: '1'})
+    const page = query.get('page')
 
     useEffect(() => {
         setTimeout(() => {
             setShowSkeleton(true);
         }, 1000);
 
-        moviesService.getMovies().then(({data}) => {
+        moviesService.getMovies(page).then(({data}) => {
             setMovies(data.results)
+            handleSetPages(data.total_pages)
             setShowSkeleton(false)
         })
-    }, [])
+    }, [page])
 
     return (
-        <div className={styles.wrapper}>
+        <section className={styles.wrapper}>
             <div className={styles.list}>
                 {
                     movies.map((movie) => <Movie movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
                 }
             </div>
-        </div>
+        </section>
     );
 };

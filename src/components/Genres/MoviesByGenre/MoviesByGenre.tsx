@@ -1,7 +1,7 @@
 export const MoviesByGenre = () => {
     return (
-        <div>
+        <section>
             MoviesByGenre
-        </div>
+        </section>
     );
 };

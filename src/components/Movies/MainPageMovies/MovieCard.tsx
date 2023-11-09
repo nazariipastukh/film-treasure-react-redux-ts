@@ -1,17 +1,17 @@
 import {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import Skeleton from "@mui/material/Skeleton/Skeleton";
 
-import {StarRatingComponent} from "../../Rating";
 import {IMovie} from "../../../interfaces/movieInterface";
-import styles from './Movie.module.css'
+import {StarRatingComponent} from "../../Rating";
+import styles from "./MainPageMovie.module.css";
+import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 interface IProps {
     movie: IMovie
     showSkeleton: boolean
 }
 
-export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
+export const MovieCard: FC<IProps> = ({movie, showSkeleton}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState(false)
@@ -21,8 +21,8 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
             {
                 !showSkeleton ? (
                     <section>
-                        <Skeleton animation="wave" variant="rounded" width={'19.5vw'} height={'60vh'}/>
-                        <Skeleton animation="wave" variant="text" width={'19.5vw'} sx={{fontSize: '3rem'}}/>
+                        <Skeleton animation="wave" variant="rounded" width={'11.5vw'} height={'35vh'}/>
+                        <Skeleton animation="wave" variant="text" width={'11.5vw'} sx={{fontSize: '3rem'}}/>
                     </section>
                 ) : (
                     <div onMouseEnter={() => setIsActive(true)}
@@ -37,7 +37,7 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                                 <p className={styles.rate}>{vote_average}</p>
                                 <StarRatingComponent
                                     divider={2} numberOfStars={5} vote={vote_average}
-                                    starDimension={'20px'} starSpacing={'10px'}
+                                    starSpacing={'8px'} starDimension={'13px'}
                                 />
                             </div>
                         }

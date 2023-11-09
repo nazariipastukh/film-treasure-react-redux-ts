@@ -23,6 +23,10 @@
     font-weight: 500;
 }
 
+.links a[class='active'] {
+    color: dimgrey;
+}
+
 .logo {
     width: 49vw;
     display: flex;

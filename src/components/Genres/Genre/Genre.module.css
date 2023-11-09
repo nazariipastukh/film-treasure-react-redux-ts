@@ -1,4 +1,4 @@
-.genre{
+.genre {
     border-radius: 15px;
     padding: 5px 12px;
     background: white;
@@ -9,6 +9,6 @@
     cursor: pointer;
 }
 
-.genre:hover{
+.genre:hover {
     background-color: #e7f0fd;
 }

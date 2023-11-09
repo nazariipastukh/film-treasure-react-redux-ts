@@ -1,4 +1,54 @@
 .background {
+    position: absolute;
+    width: 99.4vw;
+    min-height: 100vh;
+    margin-top: 35vh;
+    background-color: white;
+    z-index: 3;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 4px -50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.text {
+    font-size: 30px;
+    margin-left: 5.5vw;
+}
+
+.backgroundImg {
+    width: 200vw;
+    margin-right: 1vw;
+    height: 30vh;
+    background-size: auto;
+    filter: blur(5px);
+    position: fixed;
+    top: 10vh;
+    left: -1vw;
+    z-index: 1;
+    display: inline-block;
+    animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+    100% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.title {
     width: 100vw;
-    height: 100vh
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 13vh;
+    z-index: 2;
+}
+
+.title p {
+    font-family: 'Mona-Sans', sans-serif;
+    color: #f8f7f4;
+    font-weight: 700;
+    font-size: 50px;
 }

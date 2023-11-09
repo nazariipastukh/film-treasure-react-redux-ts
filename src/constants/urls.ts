@@ -9,7 +9,10 @@ const urls = {
     genres,
     byId: (id: number) => `${movie}/${id}`,
     cast: (id: number) => `${movie}/${id}/credits`,
-    popular: `${movie}/popular`
+    popular: `${movie}/popular`,
+    nowPlaying: `${movie}/now_playing`,
+    topRated: `${movie}/top_rated`,
+    upcoming: `${movie}/upcoming`
 }
 
 export {

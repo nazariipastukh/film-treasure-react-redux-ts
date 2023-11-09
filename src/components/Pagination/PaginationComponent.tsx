@@ -1,43 +1,28 @@
-export const PaginationComponent = () => {
+import {Pagination} from "@mui/material";
+import {useSearchParams} from "react-router-dom";
+import React, {FC} from "react";
+
+import styles from './Pagination.module.css'
+
+interface IProps {
+    total_pages: number
+}
+
+export const PaginationComponent: FC<IProps> = ({total_pages}) => {
+    const [query, setQuery] = useSearchParams();
+    const currentPage = +(query.get("page")) || 1;
+
+    const handleChange = (event: React.ChangeEvent<unknown>, newPage: number) => {
+        setQuery({page: newPage.toString()});
+    };
+
+    if (total_pages > 500) {
+        total_pages = 500
+    }
+
     return (
-        <div>
-            PaginationComponent
-        </div>
+        <section className={styles.pagination}>
+            <Pagination count={total_pages} page={currentPage} onChange={handleChange}/>
+        </section>
     );
 };
-// import React, { FC } from "react";
-// import { Pagination } from "@mui/material";
-// import styles from './Pagination.module.css';
-// import { useSearchParams } from "react-router-dom";
-//
-// interface IProps {
-//     page: {
-//         total: number;
-//     }
-// }
-//
-// export const PaginationComponent: FC<IProps> = ({ page }) => {
-//     const { total } = page;
-//     const [query, setQuery] = useSearchParams();
-//     const currentPage = +(query.get("page")) || 1;
-//
-//     const handlePageChange = (event: React.MouseEvent<HTMLElement>, newPage: number) => {
-//         setQuery({ page: newPage.toString() });
-//     };
-//
-//     // Create a wrapper function to adapt the type to MouseEventHandler<HTMLElement>
-//     const handlePageClick: React.MouseEventHandler<HTMLElement> = (event) => {
-//         const newPage = Number(event.currentTarget.getAttribute("data-page"));
-//         handlePageChange(event, newPage);
-//     };
-//
-//     return (
-//         <div className={styles.pagination}>
-//             <Pagination
-//                 page={currentPage}
-//                 count={total}
-//                 onClick={handlePageClick}
-//             />
-//         </div>
-//     );
-// };

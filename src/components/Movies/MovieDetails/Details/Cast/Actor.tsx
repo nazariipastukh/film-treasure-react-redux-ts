@@ -1,6 +1,6 @@
 import {FC} from "react";
 
-import {IActor} from "../../../../interfaces/actorInterface";
+import {IActor} from "../../../../../interfaces/actorInterface";
 import styles from './Actor.module.css'
 
 interface IProps {
@@ -11,7 +11,7 @@ export const Actor: FC<IProps> = ({actor}) => {
     const {original_name, character, profile_path} = actor
 
     return (
-        <div className={styles.actorCard}>
+        <section className={styles.actorCard}>
             {
                 profile_path ? (
                     <img src={`${process.env.REACT_APP_POSTER_URL}/${profile_path}`} alt={original_name}/>
@@ -21,6 +21,6 @@ export const Actor: FC<IProps> = ({actor}) => {
             }
             <p>{original_name}</p>
             <p className={styles.characterName}>{character}</p>
-        </div>
+        </section>
     );
 };

@@ -3,11 +3,9 @@ import {FC} from "react";
 import {StarRatingComponent} from "../../Rating";
 import {IMovieDetails} from "../../../interfaces/movieDetailsInterface";
 import {Genre} from "../../Genres";
-import {SkeletonComponent} from "./SkeletonComponent";
-import {MovieCountries} from "./Details/MovieCountries";
-import {CastComponent} from "./Cast/CastComponent";
-import {ProductionCompanies} from "./Details/ProductionCompanies";
-import {PopularComponent} from "../MainPageMovies/PopularComponent";
+import {SkeletonComponent} from "./Skeleton";
+import {CastComponent, MovieCountries, ProductionCompanies} from "./Details";
+import {PopularComponent} from "../MainPageMovies";
 import styles from './Details.module.css'
 
 interface IProps {
@@ -25,12 +23,12 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
     const year = release_date.split('-').slice(0, 1)
 
     return (
-        <div>
+        <section>
             {
                 !showSkeleton ? (
                     <SkeletonComponent/>
                 ) : (
-                    <div>
+                    <section>
                         <section className={styles.detailsWrapper}
                                  style={{backgroundImage: `url(${process.env.REACT_APP_POSTER_URL}${backdrop_path})`}}>
                         </section>
@@ -84,12 +82,12 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                                 </section>
                             </section>
                         </section>
-                        <section>
+                        <section className={styles.popular}>
                             <PopularComponent/>
                         </section>
-                    </div>
+                    </section>
                 )
             }
-        </div>
+        </section>
     );
 };

@@ -1,7 +1,7 @@
 export const SearchComponent = () => {
     return (
-        <div>
+        <section>
             SearchComponent
-        </div>
+        </section>
     );
 };
