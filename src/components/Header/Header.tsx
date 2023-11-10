@@ -13,18 +13,18 @@ export const Header = () => {
                 <NavLink to={'/genres'}> Genres </NavLink>
             </nav>
 
-            <div className={styles.logo}>
+            <section className={styles.logo}>
                 <NavLink to={'/main'}>
                     <img src={'https://imageupload.io/ib/qxfdrYFJ1oSTKcl_1699297913.jpg'} alt={'headerLogo'}/>
                 </NavLink>
-            </div>
+            </section>
 
-            <div className={styles.searchAndUser}>
-                <div>
+            <section className={styles.searchAndUser}>
+                <section>
                     <SearchComponent/>
-                </div>
+                </section>
                 <UserComponent/>
-            </div>
+            </section>
         </header>
     );
 };

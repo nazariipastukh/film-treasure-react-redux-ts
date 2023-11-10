@@ -12,7 +12,8 @@ const urls = {
     popular: `${movie}/popular`,
     nowPlaying: `${movie}/now_playing`,
     topRated: `${movie}/top_rated`,
-    upcoming: `${movie}/upcoming`
+    upcoming: `${movie}/upcoming`,
+    byGenre: (genreId: string) => `${movies}?with_genres=${genreId}`
 }
 
 export {

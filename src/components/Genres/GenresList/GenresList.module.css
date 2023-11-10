@@ -1,0 +1,13 @@
+.listWrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    width: 63vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15vh;
+    justify-content: center;
+}

@@ -37,7 +37,15 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                         </article>
                         <section className={styles.contentWrapper}>
                             <section className={styles.content}>
-                                <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
+                                {
+                                    poster_path ? (
+                                        <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
+                                    ) : (
+                                        <img className={styles.notFoundImg}
+                                             src={'https://www.bigpharmacy.com.my/scripts/timthumb.php?src=https://www.bigpharmacy.com.my//site_media/img/106897EA.jpg&w=500&zc=1'}
+                                             alt={title}/>
+                                    )
+                                }
                                 <section>
                                     {
                                         tagline && (
@@ -69,12 +77,18 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                                         <ProductionCompanies production={production_companies}/>
                                     </article>
                                     <article className={styles.links}>
-                                        <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank">
-                                            IMDB
-                                        </a>
-                                        <a href={homepage} target="_blank">
-                                            Home page
-                                        </a>
+                                        {
+                                            imdb_id && (
+                                                <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank" rel="noreferrer">
+                                                    IMDB
+                                                </a>)
+                                        }
+                                        {
+                                            homepage && (
+                                                <a href={homepage} target="_blank" rel="noreferrer">
+                                                    Home page
+                                                </a>)
+                                        }
                                     </article>
                                 </section>
                                 <section>

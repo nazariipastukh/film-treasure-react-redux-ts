@@ -1,0 +1,7 @@
+export * from './User'
+export * from './Header'
+export * from './Genres'
+export * from './Movies'
+export * from './Rating'
+export * from './Pagination'
+export * from './Search'

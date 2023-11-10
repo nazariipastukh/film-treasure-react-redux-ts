@@ -13,7 +13,7 @@ export const UpcomingComponent = () => {
             setShowSkeleton(true);
         }, 1000);
 
-        moviesService.getNowPlaying().then(({data}) => {
+        moviesService.getUpcoming().then(({data}) => {
             setUpcoming(data.results.slice(0, 7))
             setShowSkeleton(false)
         })

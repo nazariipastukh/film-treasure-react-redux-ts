@@ -29,12 +29,20 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                          onMouseLeave={() => setIsActive(false)}
                          onClick={() => navigate(`/movie/${id}`, {state: id})}>
 
-                        <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
+                        {
+                            poster_path ? (
+                                <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
+                            ) : (
+                                <img className={styles.notFound}
+                                     src={'https://www.bigpharmacy.com.my/scripts/timthumb.php?src=https://www.bigpharmacy.com.my//site_media/img/106897EA.jpg&w=500&zc=1'}
+                                     alt={title}/>
+                            )
+                        }
                         <p>{title}</p>
 
                         {isActive &&
                             <div className={styles.rating}>
-                                <p className={styles.rate}>{vote_average}</p>
+                                <p className={styles.rate}>{vote_average.toFixed(1)}</p>
                                 <StarRatingComponent
                                     divider={2} numberOfStars={5} vote={vote_average}
                                     starDimension={'20px'} starSpacing={'10px'}

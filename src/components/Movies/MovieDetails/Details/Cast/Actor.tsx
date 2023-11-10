@@ -16,7 +16,9 @@ export const Actor: FC<IProps> = ({actor}) => {
                 profile_path ? (
                     <img src={`${process.env.REACT_APP_POSTER_URL}/${profile_path}`} alt={original_name}/>
                 ) : (
-                    <img src={'https://4vector.com/i/free-vector-user-icon_101949_User_Icon.png'} alt={original_name}/>
+                    <img className={styles.notFoundImg}
+                         src={'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'}
+                         alt={original_name}/>
                 )
             }
             <p>{original_name}</p>

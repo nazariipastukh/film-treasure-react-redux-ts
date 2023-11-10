@@ -1,4 +1,9 @@
 .user {
     width: 2.5vw;
     margin: 0 2vw;
+    transition: ease-in 0.3s;
+}
+
+.user:hover {
+    transform: scale(1.2);
 }

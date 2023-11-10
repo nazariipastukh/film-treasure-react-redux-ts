@@ -1,7 +1,6 @@
 import {useState} from "react";
 
-import {MoviesList} from "../../components/Movies";
-import {PaginationComponent} from "../../components/Pagination";
+import {MoviesList, PaginationComponent} from "../../components";
 
 export const MoviesPage = () => {
     const [totalPages, setTotalPages] = useState(null)

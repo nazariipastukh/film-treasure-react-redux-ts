@@ -1,4 +1,4 @@
-import {NowPlayingComponent, PopularComponent, TopRatedComponent, UpcomingComponent} from "../../components/Movies";
+import {NowPlayingComponent, PopularComponent, TopRatedComponent, UpcomingComponent} from "../../components";
 import styles from './MainPage.module.css'
 
 export const MainPage = () => {

@@ -13,7 +13,7 @@ export const PopularComponent = () => {
             setShowSkeleton(true);
         }, 1000);
 
-        moviesService.getNowPlaying().then(({data}) => {
+        moviesService.getPopular().then(({data}) => {
             setPopularMovies(data.results.slice(0, 7))
             setShowSkeleton(false)
         })
