@@ -1,2 +1,2 @@
-export * from './SearchComponent'
-export * from './SearchResults'
+export * from './SearchComponent/SearchComponent'
+export * from './SearchResults/SearchResults'
