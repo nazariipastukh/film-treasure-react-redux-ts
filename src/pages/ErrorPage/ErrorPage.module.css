@@ -1,0 +1,11 @@
+.errorPage{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.darkErrorPage{
+    background-color: #282634;
+}

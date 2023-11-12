@@ -4,7 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {moviesService} from "../../../services";
 import {Movie} from "../Movie";
 import {IMovie} from "../../../interfaces/movieInterface";
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './MoviesList.module.css'
 
 interface IProps {

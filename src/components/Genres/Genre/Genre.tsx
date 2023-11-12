@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {NavLink} from "react-router-dom";
 
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './Genre.module.css'
 
 interface IProps {

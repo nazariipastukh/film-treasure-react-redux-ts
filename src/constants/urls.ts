@@ -8,14 +8,14 @@ const search = '/search/movie?query='
 const urls = {
     movies,
     genres,
-    byId: (id: number) => `${movie}/${id}`,
-    cast: (id: number) => `${movie}/${id}/credits`,
+    search,
     popular: `${movie}/popular`,
     nowPlaying: `${movie}/now_playing`,
     topRated: `${movie}/top_rated`,
     upcoming: `${movie}/upcoming`,
-    byGenre: (genreId: string) => `${movies}?with_genres=${genreId}`,
-    search
+    byId: (id: number) => `${movie}/${id}`,
+    cast: (id: number) => `${movie}/${id}/credits`,
+    byGenre: (genreId: string) => `${movies}?with_genres=${genreId}`
 }
 
 export {

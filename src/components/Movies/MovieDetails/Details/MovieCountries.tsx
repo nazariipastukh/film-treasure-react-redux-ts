@@ -9,10 +9,10 @@ interface IProps {
 
 export const MovieCountries: FC<IProps> = ({countries}) => {
     return (
-        <article>
+        <div>
             {
-                countries.slice(0, 1).map(country => <div> {country.iso_3166_1}</div>)
+                countries.slice(0, 1).map(country => <div key={country.name}> {country.iso_3166_1} </div>)
             }
-        </article>
+        </div>
     );
 };

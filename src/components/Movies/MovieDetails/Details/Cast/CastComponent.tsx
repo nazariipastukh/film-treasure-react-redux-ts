@@ -16,7 +16,7 @@ export const CastComponent: FC<IProps> = ({movieId}) => {
         castService.getCast(movieId).then(({data}) => {
             setCast(data.cast.slice(0, 9))
         })
-    }, [])
+    }, [movieId])
 
     return (
         <section className={styles.castComponent}>

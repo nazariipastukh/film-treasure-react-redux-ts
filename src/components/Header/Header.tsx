@@ -4,7 +4,7 @@ import {Switch} from '@mui/material';
 
 import {UserComponent} from '../User';
 import {SearchComponent} from '../Search';
-import {useTheme} from "../../hoc";
+import {useTheme} from "../../hooks";
 import styles from './Header.module.css';
 
 export const Header: React.FC = () => {

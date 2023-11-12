@@ -6,7 +6,7 @@ import {Genre} from "../../Genres";
 import {SkeletonComponent} from "./Skeleton";
 import {CastComponent, MovieCountries, ProductionCompanies} from "./Details";
 import {PopularComponent} from "../MainPageMovies";
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './Details.module.css'
 
 interface IProps {

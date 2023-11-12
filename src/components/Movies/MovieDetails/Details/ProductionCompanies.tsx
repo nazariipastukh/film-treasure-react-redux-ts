@@ -1,7 +1,7 @@
 import {FC} from "react";
 
 import {ICompany} from "../../../../interfaces/companyInterface";
-import {useTheme} from "../../../../hoc";
+import {useTheme} from "../../../../hooks";
 import styles from './Companies.module.css'
 
 interface IProps {

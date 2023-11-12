@@ -1,18 +1,13 @@
-import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
-
-interface ThemeContextProps {
-    themeTrigger: boolean;
-    toggleTheme: () => void;
-    checkTheme: () => boolean;
-}
-
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+import React, {createContext, ReactNode, useEffect, useState} from 'react';
+import {IThemeContext} from "../interfaces/themeContextInterface";
 
 interface ThemeProviderProps {
     children: ReactNode;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
+const ThemeContext = createContext<IThemeContext>(null);
+
+const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
     const [themeTrigger, setThemeTrigger] = useState(false);
 
     const toggleTheme = () => {
@@ -36,6 +31,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
     );
 };
 
-export const useTheme = (): ThemeContextProps => {
-    return useContext(ThemeContext);
-};
+export {
+    ThemeContext,
+    ThemeProvider
+}

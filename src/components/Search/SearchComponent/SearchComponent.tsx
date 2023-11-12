@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './Search.module.css'
 
 interface IFormData {

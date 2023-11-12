@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import {genresService} from "../../../services";
 import {Genre} from "../Genre";
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './GenresList.module.css'
 
 export const GenresList = () => {

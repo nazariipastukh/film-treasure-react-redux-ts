@@ -2,7 +2,7 @@ import {Pagination} from "@mui/material";
 import {useSearchParams} from "react-router-dom";
 import React, {FC} from "react";
 
-import {useTheme} from "../../hoc";
+import {useTheme} from "../../hooks";
 import styles from './Pagination.module.css'
 
 interface IProps {

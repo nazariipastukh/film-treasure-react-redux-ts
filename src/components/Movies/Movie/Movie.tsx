@@ -4,7 +4,7 @@ import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import {StarRatingComponent} from "../../Rating";
 import {IMovie} from "../../../interfaces/movieInterface";
-import {useTheme} from "../../../hoc";
+import {useTheme} from "../../../hooks";
 import styles from './Movie.module.css'
 
 interface IProps {

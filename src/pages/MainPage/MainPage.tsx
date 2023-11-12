@@ -1,5 +1,5 @@
 import {NowPlayingComponent, PopularComponent, TopRatedComponent, UpcomingComponent} from "../../components";
-import {useTheme} from "../../hoc";
+import {useTheme} from "../../hooks";
 import styles from './MainPage.module.css'
 
 export const MainPage = () => {

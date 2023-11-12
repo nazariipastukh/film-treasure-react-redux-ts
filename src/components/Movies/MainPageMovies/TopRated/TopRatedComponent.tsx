@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {moviesService} from "../../../../services";
-import {useTheme} from "../../../../hoc";
+import {useTheme} from "../../../../hooks";
 import styles from '../MoviesBlockWrapper.module.css'
 
 export const TopRatedComponent = () => {
