@@ -9,6 +9,10 @@
     box-shadow: 4px -50px 50px rgba(0, 0, 0, 0.5);
 }
 
+.darkBackground {
+    background-color: #282639;
+}
+
 .text {
     font-size: 30px;
     margin-left: 5.5vw;
@@ -51,4 +55,8 @@
     color: #f8f7f4;
     font-weight: 700;
     font-size: 50px;
+}
+
+.darkText {
+    color: #f8f7f4
 }

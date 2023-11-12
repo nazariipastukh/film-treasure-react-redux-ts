@@ -1,7 +1,10 @@
 import {NowPlayingComponent, PopularComponent, TopRatedComponent, UpcomingComponent} from "../../components";
+import {useTheme} from "../../hoc";
 import styles from './MainPage.module.css'
 
 export const MainPage = () => {
+    const {themeTrigger} = useTheme();
+
     return (
         <section>
             <section className={styles.backgroundImg}
@@ -10,14 +13,14 @@ export const MainPage = () => {
             <article className={styles.title}>
                 <p>Welcome!</p>
             </article>
-            <section className={styles.background}>
-                <p className={styles.text}>Top rated</p>
+            <section className={`${styles.background} ${themeTrigger ? styles.darkBackground : ''}`}>
+                <p className={`${styles.text} ${themeTrigger && styles.darkText}`}>Top rated</p>
                 <TopRatedComponent/>
-                <p className={styles.text}>Upcoming</p>
+                <p className={`${styles.text} ${themeTrigger && styles.darkText}`}>Upcoming</p>
                 <UpcomingComponent/>
-                <p className={styles.text}>Popular</p>
+                <p className={`${styles.text} ${themeTrigger && styles.darkText}`}>Popular</p>
                 <PopularComponent/>
-                <p className={styles.text}>Now playing</p>
+                <p className={`${styles.text} ${themeTrigger && styles.darkText}`}>Now playing</p>
                 <NowPlayingComponent/>
             </section>
         </section>

@@ -1,13 +1,18 @@
-import {NavLink} from "react-router-dom";
+import React from 'react';
+import {NavLink} from 'react-router-dom';
+import {Switch} from '@mui/material';
 
-import {UserComponent} from "../User";
-import {SearchComponent} from "../Search";
-import styles from './Header.module.css'
+import {UserComponent} from '../User';
+import {SearchComponent} from '../Search';
+import {useTheme} from "../../hoc";
+import styles from './Header.module.css';
 
-export const Header = () => {
+export const Header: React.FC = () => {
+    const {themeTrigger, toggleTheme} = useTheme();
+
     return (
-        <header className={styles.header}>
-            <nav className={styles.links}>
+        <header className={`${styles.header} ${themeTrigger && styles.dark}`}>
+            <nav className={`${styles.links} ${themeTrigger && styles.dark}`}>
                 <NavLink to={'/main'}> Main Page </NavLink>
                 <NavLink to={'/movies'}> Movies </NavLink>
                 <NavLink to={'/genres'}> Genres </NavLink>
@@ -15,7 +20,13 @@ export const Header = () => {
 
             <section className={styles.logo}>
                 <NavLink to={'/main'}>
-                    <img src={'https://imageupload.io/ib/qxfdrYFJ1oSTKcl_1699297913.jpg'} alt={'headerLogo'}/>
+                    {
+                        themeTrigger ? (
+                            <img src={'https://imageupload.io/ib/hR6kTVL3h0HBtKB_1699730812.jpg'} alt={'headerLogo'}/>
+                        ) : (
+                            <img src={'https://imageupload.io/ib/qxfdrYFJ1oSTKcl_1699297913.jpg'} alt={'headerLogo'}/>
+                        )
+                    }
                 </NavLink>
             </section>
 
@@ -23,6 +34,7 @@ export const Header = () => {
                 <section>
                     <SearchComponent/>
                 </section>
+                <Switch checked={themeTrigger} onClick={toggleTheme} color="primary"/>
                 <UserComponent/>
             </section>
         </header>

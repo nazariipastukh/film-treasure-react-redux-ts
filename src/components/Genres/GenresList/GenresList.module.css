@@ -6,8 +6,13 @@
 
 .list {
     width: 63vw;
+    height: 11vh;
     display: flex;
     flex-wrap: wrap;
     margin-top: 15vh;
     justify-content: center;
+}
+
+.darkWrapper {
+    background-color: #282634;
 }

@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
+import {useTheme} from "../../../hoc";
 import styles from './Search.module.css'
 
 interface IFormData {
@@ -12,6 +13,7 @@ export const SearchComponent = () => {
         mode: 'onChange'
     })
     const navigate = useNavigate()
+    const {themeTrigger} = useTheme();
 
     const search = (formData: IFormData) => {
         const inputValue = formData.value
@@ -20,7 +22,7 @@ export const SearchComponent = () => {
     }
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit(search)}>
+        <form className={`${styles.form} ${themeTrigger ? styles.dark : ''} `} onSubmit={handleSubmit(search)}>
             <section className={styles.searchWrap}>
                 <input type={'text'} placeholder={'Search'} {...register('value', {required: true})} />
                 <button disabled={!isValid}>🔍</button>

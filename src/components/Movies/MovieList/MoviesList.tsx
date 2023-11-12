@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {moviesService} from "../../../services";
 import {Movie} from "../Movie";
 import {IMovie} from "../../../interfaces/movieInterface";
+import {useTheme} from "../../../hoc";
 import styles from './MoviesList.module.css'
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 export const MoviesList: FC<IProps> = ({handleSetPages}) => {
+    const {themeTrigger} = useTheme();
     const [movies, setMovies] = useState<IMovie[]>([])
     const [showSkeleton, setShowSkeleton] = useState(false);
     const [query] = useSearchParams({page: '1'})
@@ -26,10 +28,10 @@ export const MoviesList: FC<IProps> = ({handleSetPages}) => {
             handleSetPages(data.total_pages)
             setShowSkeleton(false)
         })
-    }, [page])
+    }, [handleSetPages, page])
 
     return (
-        <section className={styles.wrapper}>
+        <section className={`${styles.wrapper} ${themeTrigger && styles.dark}`}>
             <div className={styles.list}>
                 {
                     movies.map((movie) => <Movie movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)

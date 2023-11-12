@@ -2,11 +2,13 @@ import {useEffect, useState} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {moviesService} from "../../../../services";
+import {useTheme} from "../../../../hoc";
 import styles from "../MoviesBlockWrapper.module.css";
 
 export const PopularComponent = () => {
     const [popularMovies, setPopularMovies] = useState([])
     const [showSkeleton, setShowSkeleton] = useState(false);
+    const {themeTrigger} = useTheme();
 
     useEffect(() => {
         setTimeout(() => {
@@ -20,7 +22,7 @@ export const PopularComponent = () => {
     }, [])
 
     return (
-        <section className={styles.moviesBlockWrapper}>
+        <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
                 popularMovies.map(movie => <MovieCard movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
             }

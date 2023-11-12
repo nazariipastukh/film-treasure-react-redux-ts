@@ -7,6 +7,7 @@
     top: 0;
     z-index: 100;
     width: 100vw;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .links {
@@ -44,4 +45,12 @@
     justify-content: right;
     align-items: center;
     margin-top: 2vh;
+}
+
+.dark {
+    background-color: #282634;
+}
+
+.dark a {
+    color: #f8f7f4
 }

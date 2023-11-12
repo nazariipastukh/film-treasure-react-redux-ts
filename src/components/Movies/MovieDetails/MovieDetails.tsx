@@ -6,6 +6,7 @@ import {Genre} from "../../Genres";
 import {SkeletonComponent} from "./Skeleton";
 import {CastComponent, MovieCountries, ProductionCompanies} from "./Details";
 import {PopularComponent} from "../MainPageMovies";
+import {useTheme} from "../../../hoc";
 import styles from './Details.module.css'
 
 interface IProps {
@@ -21,6 +22,7 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
     } = movieDetails
 
     const year = release_date.split('-').slice(0, 1)
+    const {themeTrigger} = useTheme();
 
     return (
         <section>
@@ -35,7 +37,7 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                         <article className={styles.title}>
                             <p>{title}</p>
                         </article>
-                        <section className={styles.contentWrapper}>
+                        <section className={`${styles.contentWrapper} ${themeTrigger && styles.darkContentWrapper} `}>
                             <section className={styles.content}>
                                 {
                                     poster_path ? (
@@ -49,10 +51,10 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                                 <section>
                                     {
                                         tagline && (
-                                            <p className={styles.tag}>"{tagline}"</p>
+                                            <p className={`${styles.tag} ${themeTrigger && styles.darkTag}`}>"{tagline}"</p>
                                         )
                                     }
-                                    <article className={styles.rating}>
+                                    <article className={`${styles.rating} ${themeTrigger && styles.darkRating}`}>
                                         <p className={styles.vote}>{vote_average.toFixed(1)} </p>
                                         <p className={styles.count}>({vote_count})</p>
                                         <StarRatingComponent
@@ -65,21 +67,22 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                                             genres.map(genre => <Genre genre={genre} key={genre.id}/>)
                                         }
                                     </article>
-                                    <article className={styles.time}>
+                                    <article className={`${styles.time} ${themeTrigger && styles.darkTime}`}>
                                         <p>{runtime} min - {year},&nbsp;
                                             <MovieCountries countries={production_countries}/>
                                         </p>
                                     </article>
-                                    <article className={styles.overview}>
+                                    <article className={`${styles.overview} ${themeTrigger && styles.darkOverview}`}>
                                         <p>{overview}</p>
                                     </article>
                                     <article>
                                         <ProductionCompanies production={production_companies}/>
                                     </article>
-                                    <article className={styles.links}>
+                                    <article className={`${styles.links} ${themeTrigger && styles.darkLinks}`}>
                                         {
                                             imdb_id && (
-                                                <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank" rel="noreferrer">
+                                                <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank"
+                                                   rel="noreferrer">
                                                     IMDB
                                                 </a>)
                                         }
@@ -96,7 +99,7 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                                 </section>
                             </section>
                         </section>
-                        <section className={styles.popular}>
+                        <section className={`${styles.popular} ${themeTrigger && styles.darkPopular}`}>
                             <PopularComponent/>
                         </section>
                     </section>

@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {IMovie} from "../../../interfaces/movieInterface";
 import {searchService} from "../../../services";
 import {Movie} from "../../Movies";
+import {useTheme} from "../../../hoc";
 import styles from './SearchResults.module.css'
 
 interface IProps {
@@ -16,6 +17,7 @@ export const SearchResults: FC<IProps> = ({handleSetPages, inputValue}) => {
     const [showSkeleton, setShowSkeleton] = useState(false);
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
+    const {themeTrigger} = useTheme()
 
     useEffect(() => {
         setTimeout(() => {
@@ -30,7 +32,7 @@ export const SearchResults: FC<IProps> = ({handleSetPages, inputValue}) => {
     }, [handleSetPages, inputValue, page])
 
     return (
-        <section className={styles.resultsWrapper}>
+        <section className={`${styles.resultsWrapper} ${themeTrigger && styles.darkWrapper}`}>
             <section className={styles.list}>
                 {
                     movies.length === 0 ? (

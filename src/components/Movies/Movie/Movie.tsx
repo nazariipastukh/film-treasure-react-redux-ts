@@ -4,6 +4,7 @@ import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import {StarRatingComponent} from "../../Rating";
 import {IMovie} from "../../../interfaces/movieInterface";
+import {useTheme} from "../../../hoc";
 import styles from './Movie.module.css'
 
 interface IProps {
@@ -15,6 +16,7 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState(false)
+    const {themeTrigger} = useTheme();
 
     return (
         <section className={styles.card}>
@@ -28,7 +30,6 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                     <div onMouseEnter={() => setIsActive(true)}
                          onMouseLeave={() => setIsActive(false)}
                          onClick={() => navigate(`/movie/${id}`, {state: id})}>
-
                         {
                             poster_path ? (
                                 <img src={`${process.env.REACT_APP_POSTER_URL}${poster_path}`} alt={title}/>
@@ -38,8 +39,9 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
                                      alt={title}/>
                             )
                         }
-                        <p>{title}</p>
-
+                        <p className={themeTrigger && `${styles.darkTitle}`}>
+                            {title}
+                        </p>
                         {isActive &&
                             <div className={styles.rating}>
                                 <p className={styles.rate}>{vote_average.toFixed(1)}</p>

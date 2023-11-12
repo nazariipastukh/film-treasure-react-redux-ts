@@ -6,8 +6,6 @@ export const MovieInfoPage = () => {
     const {state: id} = useLocation()
 
     return (
-        <section>
-            <MovieDetailsComponent id={id}/>
-        </section>
+        <MovieDetailsComponent id={id}/>
     );
 };

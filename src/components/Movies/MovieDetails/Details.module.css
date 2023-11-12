@@ -9,7 +9,7 @@
     left: -1vw;
     z-index: 1;
     display: inline-block;
-    animation: marquee 30s linear infinite;
+    animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee {
@@ -31,13 +31,17 @@
 
 .contentWrapper {
     position: absolute;
-    margin-top: 45vh;
+    margin-top: 45.5vh;
     width: 99.5vw;
     min-height: 100vh;
     z-index: 3;
     border-radius: 20px;
     background-color: #f8f7f4;
     box-shadow: 4px -80px 50px rgba(0, 0, 0, 0.5);
+}
+
+.darkContentWrapper {
+    background-color: #282634;
 }
 
 .title {
@@ -87,6 +91,10 @@
     margin: 3vh 0;
 }
 
+.darkRating p {
+    color: #f8f7f4
+}
+
 .overview {
     width: 37vw;
     line-height: 1.8;
@@ -100,6 +108,14 @@
     margin: 0;
 }
 
+.darkOverview {
+    background-color: #282639
+}
+
+.darkOverview p {
+    color: #f8f7f4;
+}
+
 .tag {
     width: 38vw;
     font-family: 'Mona-Sans', sans-serif;
@@ -108,11 +124,19 @@
     margin: 1vh 0;
 }
 
+.darkTag {
+    color: #f8f7f4;
+}
+
 .time p {
     display: flex;
     margin-left: 0;
     font-weight: 600;
     font-size: 16px;
+}
+
+.darkTime p {
+    color: #f8f7f4;
 }
 
 .genres {
@@ -161,6 +185,12 @@
     color: black
 }
 
+.darkLinks a {
+    background-color: #282639;
+    color: #f8f7f4;
+    border: 1px dimgrey solid;
+}
+
 .links a:hover {
     background-color: #e7f0fd;
 }
@@ -169,12 +199,16 @@
     position: absolute;
     margin-top: 170vh;
     width: 99.5vw;
-    height: 57vh;
+    height: 56.5vh;
     z-index: 3;
     border-radius: 20px 20px 0 0;
     background-color: #f8f7f4;
     box-shadow: 4px -80px 50px rgba(0, 0, 0, 0.5);
     padding: 3vh 0 0 0;
+}
+
+.darkPopular {
+    background-color: #282639;
 }
 
 .notFoundImg {

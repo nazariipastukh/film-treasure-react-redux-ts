@@ -1,6 +1,6 @@
 .card {
     width: 10vw;
-    min-height: 40vh;
+    min-height: 45vh;
     margin: 1.5vw;
     border-radius: 15px;
     cursor: pointer;
@@ -50,4 +50,8 @@ p {
 .rate {
     color: #f8f7f4;
     margin: 0 0 1vh 0;
+}
+
+.darkTitle {
+    color: #f8f7f4;
 }

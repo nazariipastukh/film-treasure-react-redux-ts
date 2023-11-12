@@ -19,3 +19,11 @@
     font-size: 20px;
     margin-bottom: 80vh;
 }
+
+.darkWrapper {
+    background-color: #282634;
+}
+
+.darkWrapper p {
+    color: #f8f7f4;
+}

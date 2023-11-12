@@ -15,6 +15,7 @@
 .card img {
     height: 60vh;
     border-radius: 15px;
+    width: 19.5vw;
 }
 
 .rating {
@@ -54,4 +55,8 @@ p {
 
 .notFound {
     width: 19.5vw
+}
+
+.darkTitle {
+    color: #f8f7f4;
 }

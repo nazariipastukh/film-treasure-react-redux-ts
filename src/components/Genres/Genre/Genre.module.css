@@ -21,3 +21,16 @@
 .genre:hover {
     background-color: #e7f0fd;
 }
+
+.darkGenre {
+    background: #282639;
+    border: 1px dimgrey solid;
+}
+
+.darkGenre a {
+    color: #f8f7f4;
+}
+
+.darkGenre:hover {
+    background: #555555;
+}

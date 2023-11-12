@@ -5,6 +5,11 @@
     padding: 0.8vh 0 0.8vh 1vh;
 }
 
+.dark input{
+    background-color: #282634;
+    color: #f8f7f4
+}
+
 .form button {
     height: 4vh;
     border-radius: 0 15px 15px 0;
@@ -16,4 +21,5 @@
 .searchWrap {
     display: flex;
     align-items: center;
+    margin-right: 1vw;
 }

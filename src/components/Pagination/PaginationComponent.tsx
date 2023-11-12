@@ -2,6 +2,7 @@ import {Pagination} from "@mui/material";
 import {useSearchParams} from "react-router-dom";
 import React, {FC} from "react";
 
+import {useTheme} from "../../hoc";
 import styles from './Pagination.module.css'
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IProps {
 export const PaginationComponent: FC<IProps> = ({total_pages}) => {
     const [query, setQuery] = useSearchParams();
     const currentPage = +(query.get("page")) || 1;
+    const {themeTrigger} = useTheme();
 
     const handleChange = (event: React.ChangeEvent<unknown>, newPage: number) => {
         setQuery({page: newPage.toString()});
@@ -21,7 +23,7 @@ export const PaginationComponent: FC<IProps> = ({total_pages}) => {
     }
 
     return (
-        <section className={styles.pagination}>
+        <section className={`${styles.pagination} ${themeTrigger && styles.dark}`}>
             <Pagination count={total_pages} page={currentPage} onChange={handleChange}/>
         </section>
     );

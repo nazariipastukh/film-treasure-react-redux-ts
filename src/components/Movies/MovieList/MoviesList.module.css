@@ -11,3 +11,7 @@
     flex-wrap: wrap;
     margin-top: 15vh;
 }
+
+.dark {
+    background-color: #282634;
+}
