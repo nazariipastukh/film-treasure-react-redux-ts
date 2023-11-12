@@ -2,10 +2,12 @@
     width: 2.5vw;
     margin: 0 1.5vw 0 1.5vw;
     transition: ease-in 0.3s;
+
 }
 
 .name{
-    margin: 0 0 0 1vw;
+    margin: 0 0 0 1.1vw;
+    font-size: 14px;
 }
 
 .user:hover {
@@ -14,4 +16,5 @@
 
 .darkUser p{
     color: gray;
+    font-size: 14px;
 }
