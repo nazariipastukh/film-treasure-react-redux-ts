@@ -1,9 +1,17 @@
 .user {
     width: 2.5vw;
-    margin: 0 1.5vw 0 1vw;
+    margin: 0 1.5vw 0 1.5vw;
     transition: ease-in 0.3s;
+}
+
+.name{
+    margin: 0 0 0 1vw;
 }
 
 .user:hover {
     transform: scale(1.2);
+}
+
+.darkUser p{
+    color: gray;
 }
