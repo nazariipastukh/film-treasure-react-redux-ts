@@ -32,11 +32,11 @@
     width: 49vw;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 .logo img {
-    width: 5vw
+    width: 3.7vw
 }
 
 .searchAndUser {

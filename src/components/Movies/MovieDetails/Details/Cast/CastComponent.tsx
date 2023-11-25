@@ -1,8 +1,8 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect} from "react";
 
-import {castService} from "../../../../../services";
 import {Actor} from "./Actor";
-import {IActor} from "../../../../../interfaces/actorInterface";
+import {useAppDispatch, useAppSelector} from "../../../../../hooks/reduxHooks";
+import {castActions} from "../../../../../redux/slices/castSlice";
 import styles from "../../Details.module.css";
 
 interface IProps {
@@ -10,13 +10,12 @@ interface IProps {
 }
 
 export const CastComponent: FC<IProps> = ({movieId}) => {
-    const [cast, setCast] = useState<IActor[]>()
+    const {cast} = useAppSelector(state => state.cast)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        castService.getCast(movieId).then(({data}) => {
-            setCast(data.cast.slice(0, 9))
-        })
-    }, [movieId])
+        dispatch(castActions.getActors(movieId))
+    }, [])
 
     return (
         <section className={styles.castComponent}>

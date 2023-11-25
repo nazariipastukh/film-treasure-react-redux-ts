@@ -21,3 +21,7 @@
 .notFoundImg {
     width: 6.5vw;
 }
+
+.dark p{
+    color: #f8f7f4;
+}

@@ -2,6 +2,7 @@ import {FC} from "react";
 
 import {IActor} from "../../../../../interfaces/actorInterface";
 import styles from './Actor.module.css'
+import {useTheme} from "../../../../../hooks";
 
 interface IProps {
     actor: IActor
@@ -9,9 +10,10 @@ interface IProps {
 
 export const Actor: FC<IProps> = ({actor}) => {
     const {original_name, character, profile_path} = actor
+    const {themeTrigger, toggleTheme} = useTheme();
 
     return (
-        <section className={styles.actorCard}>
+        <section className={`${styles.actorCard} ${themeTrigger && styles.dark}`}>
             {
                 profile_path ? (
                     <img src={`${process.env.REACT_APP_POSTER_URL}/${profile_path}`} alt={original_name}/>

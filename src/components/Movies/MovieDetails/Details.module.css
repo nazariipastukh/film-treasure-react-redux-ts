@@ -55,7 +55,6 @@
 
 .title p {
     font-family: 'Mona-Sans', sans-serif;
-    color: #f8f7f4;
     font-weight: 500;
     font-size: 50px;
 }
@@ -91,10 +90,6 @@
     margin: 3vh 0;
 }
 
-.darkRating p {
-    color: #f8f7f4
-}
-
 .overview {
     width: 37vw;
     line-height: 1.8;
@@ -112,10 +107,6 @@
     background-color: #282639
 }
 
-.darkOverview p {
-    color: #f8f7f4;
-}
-
 .tag {
     width: 38vw;
     font-family: 'Mona-Sans', sans-serif;
@@ -124,19 +115,11 @@
     margin: 1vh 0;
 }
 
-.darkTag {
-    color: #f8f7f4;
-}
-
 .time p {
     display: flex;
     margin-left: 0;
     font-weight: 600;
     font-size: 16px;
-}
-
-.darkTime p {
-    color: #f8f7f4;
 }
 
 .genres {
@@ -213,4 +196,12 @@
 
 .notFoundImg {
     width: 25vw;
+}
+
+.text p {
+    color: #282634;
+}
+
+.darkText p {
+    color: #f8f7f4;
 }

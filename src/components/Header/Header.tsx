@@ -6,6 +6,9 @@ import {UserComponent} from '../User';
 import {SearchComponent} from '../Search';
 import {useTheme} from "../../hooks";
 import styles from './Header.module.css';
+import darkLogo from '../../assets/logos/darkLogo.jpg'
+import lightLogo from '../../assets/logos/lightLogo.jpg'
+
 
 export const Header: React.FC = () => {
     const {themeTrigger, toggleTheme} = useTheme();
@@ -22,9 +25,9 @@ export const Header: React.FC = () => {
                 <NavLink to={'/main'}>
                     {
                         themeTrigger ? (
-                            <img src={'https://imageupload.io/ib/hR6kTVL3h0HBtKB_1699730812.jpg'} alt={'headerLogo'}/>
+                            <img src={darkLogo} alt={'headerLogo'}/>
                         ) : (
-                            <img src={'https://imageupload.io/ib/qxfdrYFJ1oSTKcl_1699297913.jpg'} alt={'headerLogo'}/>
+                            <img src={lightLogo} alt={'headerLogo'}/>
                         )
                     }
                 </NavLink>

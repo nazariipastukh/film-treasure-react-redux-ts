@@ -30,12 +30,12 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
                 !showSkeleton ? (
                     <SkeletonComponent/>
                 ) : (
-                    <section>
+                    <section className={`${styles.text} ${themeTrigger && styles.darkText}`}>
                         <section className={styles.detailsWrapper}
                                  style={{backgroundImage: `url(${process.env.REACT_APP_POSTER_URL}${backdrop_path})`}}>
                         </section>
                         <article className={styles.title}>
-                            <p>{title}</p>
+                            <p style={{color: '#f8f7f4'}}>{title}</p>
                         </article>
                         <section className={`${styles.contentWrapper} ${themeTrigger && styles.darkContentWrapper} `}>
                             <section className={styles.content}>
