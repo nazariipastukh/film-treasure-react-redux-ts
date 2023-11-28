@@ -1,8 +1,8 @@
 import {FC} from "react";
 
 import {IActor} from "../../../../../interfaces/actorInterface";
+import {useAppSelector} from "../../../../../hooks/reduxHooks";
 import styles from './Actor.module.css'
-import {useTheme} from "../../../../../hooks";
 
 interface IProps {
     actor: IActor
@@ -10,7 +10,7 @@ interface IProps {
 
 export const Actor: FC<IProps> = ({actor}) => {
     const {original_name, character, profile_path} = actor
-    const {themeTrigger, toggleTheme} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section className={`${styles.actorCard} ${themeTrigger && styles.dark}`}>

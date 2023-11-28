@@ -1,32 +1,32 @@
 import {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import Skeleton from "@mui/material/Skeleton/Skeleton";
+// import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import {IMovie} from "../../../interfaces/movieInterface";
 import {StarRatingComponent} from "../../Rating";
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks";
 import styles from "./MainPageMovie.module.css";
 
 interface IProps {
     movie: IMovie
-    showSkeleton: boolean
+
 }
 
-export const MovieCard: FC<IProps> = ({movie, showSkeleton}) => {
+export const MovieCard: FC<IProps> = ({movie}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState(false)
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section className={styles.card}>
             {
-                !showSkeleton ? (
-                    <section>
-                        <Skeleton animation="wave" variant="rounded" width={'11.5vw'} height={'35vh'}/>
-                        <Skeleton animation="wave" variant="text" width={'11.5vw'} sx={{fontSize: '3rem'}}/>
-                    </section>
-                ) : (
+                // !showSkeleton ? (
+                //     <section>
+                //         <Skeleton animation="wave" variant="rounded" width={'11.5vw'} height={'35vh'}/>
+                //         <Skeleton animation="wave" variant="text" width={'11.5vw'} sx={{fontSize: '3rem'}}/>
+                //     </section>
+                // ) : (
                     <div onMouseEnter={() => setIsActive(true)}
                          onMouseLeave={() => setIsActive(false)}
                          onClick={() => navigate(`/movie/${id}`, {state: id})}>
@@ -46,7 +46,7 @@ export const MovieCard: FC<IProps> = ({movie, showSkeleton}) => {
                             </div>
                         }
                     </div>
-                )
+                // )
             }
         </section>
     );

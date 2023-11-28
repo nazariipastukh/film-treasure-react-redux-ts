@@ -1,8 +1,8 @@
+import {useAppSelector} from "../../hooks/reduxHooks";
 import styles from './ErrorPage.module.css'
-import {useTheme} from "../../hooks";
 
 export const ErrorPage = () => {
-    const {themeTrigger} = useTheme()
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section className={`${styles.errorPage} ${themeTrigger && styles.darkErrorPage}`}>

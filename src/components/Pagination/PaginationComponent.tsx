@@ -2,7 +2,7 @@ import {Pagination} from "@mui/material";
 import {useSearchParams} from "react-router-dom";
 import React, {FC} from "react";
 
-import {useTheme} from "../../hooks";
+import {useAppSelector} from "../../hooks/reduxHooks";
 import styles from './Pagination.module.css'
 
 interface IProps {
@@ -12,7 +12,7 @@ interface IProps {
 export const PaginationComponent: FC<IProps> = ({total_pages}) => {
     const [query, setQuery] = useSearchParams();
     const currentPage = +(query.get("page")) || 1;
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     const handleChange = (event: React.ChangeEvent<unknown>, newPage: number) => {
         setQuery({page: newPage.toString()});

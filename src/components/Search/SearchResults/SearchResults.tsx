@@ -4,7 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import {IMovie} from "../../../interfaces/movieInterface";
 import {searchService} from "../../../services";
 import {Movie} from "../../Movies";
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks/reduxHooks";
 import styles from './SearchResults.module.css'
 
 interface IProps {
@@ -17,7 +17,7 @@ export const SearchResults: FC<IProps> = ({handleSetPages, inputValue}) => {
     const [showSkeleton, setShowSkeleton] = useState(false);
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
-    const {themeTrigger} = useTheme()
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     useEffect(() => {
         setTimeout(() => {

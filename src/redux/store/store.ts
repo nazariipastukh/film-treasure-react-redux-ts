@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
-
-import {castReducer} from "../slices/castSlice";
+import {castReducer, themeReducer} from "../slices";
+import {mainPageReducer} from "../slices/mainPageMoviesSlice";
 
 const store = configureStore({
     reducer: {
-        cast: castReducer
+        cast: castReducer,
+        theme: themeReducer,
+        mainPage: mainPageReducer
     }
 })
 

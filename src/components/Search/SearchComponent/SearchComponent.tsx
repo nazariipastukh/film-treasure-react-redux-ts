@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks/reduxHooks";
 import styles from './Search.module.css'
 
 interface IFormData {
@@ -13,7 +13,7 @@ export const SearchComponent = () => {
         mode: 'onChange'
     })
     const navigate = useNavigate()
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     const search = (formData: IFormData) => {
         const inputValue = formData.value

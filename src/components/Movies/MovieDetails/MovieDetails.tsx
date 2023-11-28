@@ -6,7 +6,7 @@ import {Genre} from "../../Genres";
 import {SkeletonComponent} from "./Skeleton";
 import {CastComponent, MovieCountries, ProductionCompanies} from "./Details";
 import {PopularComponent} from "../MainPageMovies";
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks/reduxHooks";
 import styles from './Details.module.css'
 
 interface IProps {
@@ -22,7 +22,7 @@ export const MovieDetails: FC<IProps> = ({movieDetails, showSkeleton}) => {
     } = movieDetails
 
     const year = release_date.split('-').slice(0, 1)
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section>

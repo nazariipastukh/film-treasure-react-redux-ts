@@ -2,13 +2,13 @@ import {useEffect, useState} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {moviesService} from "../../../../services";
-import {useTheme} from "../../../../hooks";
+import {useAppSelector} from "../../../../hooks";
 import styles from '../MoviesBlockWrapper.module.css'
 
 export const UpcomingComponent = () => {
     const [upcoming, setUpcoming] = useState([])
     const [showSkeleton, setShowSkeleton] = useState(false);
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,7 +24,7 @@ export const UpcomingComponent = () => {
     return (
         <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
-                upcoming.map(movie => <MovieCard movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
+                upcoming.map(movie => <MovieCard movie={movie} key={movie.id} />)
             }
         </section>
     );

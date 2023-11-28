@@ -2,12 +2,12 @@ import {useEffect, useState} from "react";
 
 import {genresService} from "../../../services";
 import {Genre} from "../Genre";
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks/reduxHooks";
 import styles from './GenresList.module.css'
 
 export const GenresList = () => {
     const [genres, setGenres] = useState([])
-    const {themeTrigger} = useTheme()
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     useEffect(() => {
         genresService.getGenresList().then(({data}) => setGenres(data.genres))

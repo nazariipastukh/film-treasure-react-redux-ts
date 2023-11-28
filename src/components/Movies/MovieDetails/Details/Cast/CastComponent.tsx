@@ -1,8 +1,8 @@
 import {FC, useEffect} from "react";
 
 import {Actor} from "./Actor";
-import {useAppDispatch, useAppSelector} from "../../../../../hooks/reduxHooks";
-import {castActions} from "../../../../../redux/slices/castSlice";
+import {useAppDispatch, useAppSelector} from "../../../../../hooks";
+import {castActions} from "../../../../../redux";
 import styles from "../../Details.module.css";
 
 interface IProps {

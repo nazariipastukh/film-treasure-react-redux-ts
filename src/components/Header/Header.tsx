@@ -4,14 +4,19 @@ import {Switch} from '@mui/material';
 
 import {UserComponent} from '../User';
 import {SearchComponent} from '../Search';
-import {useTheme} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {themeActions} from "../../redux";
 import styles from './Header.module.css';
 import darkLogo from '../../assets/logos/darkLogo.jpg'
 import lightLogo from '../../assets/logos/lightLogo.jpg'
 
-
 export const Header: React.FC = () => {
-    const {themeTrigger, toggleTheme} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
+    const dispatch = useAppDispatch()
+
+    const toggleTheme = () => {
+        dispatch(themeActions.changeTheme())
+    }
 
     return (
         <header className={`${styles.header} ${themeTrigger && styles.dark}`}>

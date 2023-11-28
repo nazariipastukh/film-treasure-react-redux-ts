@@ -1,9 +1,9 @@
 import {NowPlayingComponent, PopularComponent, TopRatedComponent, UpcomingComponent} from "../../components";
-import {useTheme} from "../../hooks";
+import {useAppSelector} from "../../hooks";
 import styles from './MainPage.module.css'
 
 export const MainPage = () => {
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section>

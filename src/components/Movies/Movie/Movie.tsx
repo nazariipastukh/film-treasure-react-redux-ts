@@ -4,7 +4,7 @@ import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import {StarRatingComponent} from "../../Rating";
 import {IMovie} from "../../../interfaces/movieInterface";
-import {useTheme} from "../../../hooks";
+import {useAppSelector} from "../../../hooks/reduxHooks";
 import styles from './Movie.module.css'
 
 interface IProps {
@@ -16,7 +16,7 @@ export const Movie: FC<IProps> = ({movie, showSkeleton}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState(false)
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <section className={styles.card}>

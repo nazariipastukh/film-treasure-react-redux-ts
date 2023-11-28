@@ -1,7 +1,7 @@
 import {FC} from "react";
 
 import {ICompany} from "../../../../interfaces/companyInterface";
-import {useTheme} from "../../../../hooks";
+import {useAppSelector} from "../../../../hooks/reduxHooks";
 import styles from './Companies.module.css'
 
 interface IProps {
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const ProductionCompanies: FC<IProps> = ({production}) => {
-    const {themeTrigger} = useTheme();
+    const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
         <article className={styles.companyName}>
