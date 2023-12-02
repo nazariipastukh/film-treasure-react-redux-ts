@@ -3,12 +3,10 @@ import {NavLink} from "react-router-dom";
 
 import styles from './Genre.module.css'
 import {useAppSelector} from "../../../hooks";
+import {IGenre} from "../../../interfaces/genreInterface";
 
 interface IProps {
-    genre: {
-        id: number,
-        name: string
-    },
+    genre: IGenre
 }
 
 export const Genre: FC<IProps> = ({genre}) => {

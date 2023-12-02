@@ -1,9 +1,9 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect} from "react";
 import {useSearchParams} from "react-router-dom";
 
-import {IMovie} from "../../../interfaces/movieInterface";
-import {genresService} from "../../../services";
 import {Movie} from "../../Movies";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {genresActions} from "../../../redux/slices/genresSlice";
 import styles from './MoviesByGenre.module.css'
 
 interface IProps {
@@ -11,26 +11,20 @@ interface IProps {
 }
 
 export const MoviesByGenre: FC<IProps> = ({genreId}) => {
-    const [movies, setMovies] = useState<IMovie[]>([])
+    const {moviesByGenre} = useAppSelector(state => state.genres)
+    const dispatch = useAppDispatch()
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
 
     useEffect(() => {
-        setTimeout(() => {
-
-        }, 1000);
-
-        genresService.getByGenre(genreId, page).then(({data}) => {
-            setMovies(data.results)
-
-        })
+        dispatch(genresActions.getByGenre({genreId, page}))
     }, [genreId, page])
 
     return (
         <section className={styles.wrapper}>
             <div className={styles.list}>
                 {
-                    movies.map(movie => <Movie movie={movie} key={movie.id}/>)
+                    moviesByGenre.map(movie => <Movie movie={movie} key={movie.id}/>)
                 }
             </div>
         </section>

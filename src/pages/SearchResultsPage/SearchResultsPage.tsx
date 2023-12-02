@@ -4,7 +4,7 @@ import {PaginationComponent, SearchResults} from "../../components";
 import {useAppSelector} from "../../hooks";
 
 export const SearchResultsPage = () => {
-    const {totalPages} = useAppSelector(state => state.movies)
+    const {totalPages} = useAppSelector(state => state.search)
     const {inputValue} = useParams()
 
     return (

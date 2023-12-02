@@ -4,7 +4,6 @@ import {useAppSelector} from "../../hooks";
 export const MoviesPage = () => {
     const {totalPages} = useAppSelector(state => state.movies)
 
-
     return (
         <section>
             <MoviesList/>
