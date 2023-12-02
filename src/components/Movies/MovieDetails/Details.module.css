@@ -65,7 +65,7 @@
     display: flex;
 }
 
-.content img {
+.contentImg{
     height: 75vh;
     border-radius: 15px;
     margin-right: 2.8vw;
@@ -188,6 +188,11 @@
     background-color: #f8f7f4;
     box-shadow: 4px -80px 50px rgba(0, 0, 0, 0.5);
     padding: 3vh 0 0 0;
+    color: #f8f7f4;
+}
+
+.popular p{
+    color: #f8f7f4;
 }
 
 .darkPopular {

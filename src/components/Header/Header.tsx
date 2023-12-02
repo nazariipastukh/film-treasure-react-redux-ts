@@ -1,16 +1,15 @@
-import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {Switch} from '@mui/material';
 
 import {UserComponent} from '../User';
 import {SearchComponent} from '../Search';
-import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 import {themeActions} from "../../redux";
-import styles from './Header.module.css';
 import darkLogo from '../../assets/logos/darkLogo.jpg'
 import lightLogo from '../../assets/logos/lightLogo.jpg'
+import styles from './Header.module.css';
 
-export const Header: React.FC = () => {
+export const Header = () => {
     const {themeTrigger} = useAppSelector(state => state.theme)
     const dispatch = useAppDispatch()
 

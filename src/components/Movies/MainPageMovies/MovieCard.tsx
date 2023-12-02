@@ -9,7 +9,6 @@ import styles from "./MainPageMovie.module.css";
 
 interface IProps {
     movie: IMovie
-
 }
 
 export const MovieCard: FC<IProps> = ({movie}) => {
@@ -38,7 +37,7 @@ export const MovieCard: FC<IProps> = ({movie}) => {
 
                         {isActive &&
                             <div className={styles.rating}>
-                                <p className={styles.rate}>{vote_average.toFixed(1)}</p>
+                                <p style={{color: '#f8f7f4'}} >{vote_average.toFixed(1)}</p>
                                 <StarRatingComponent
                                     divider={2} numberOfStars={5} vote={vote_average}
                                     starSpacing={'8px'} starDimension={'13px'}

@@ -1,18 +1,14 @@
-import {useState} from "react";
-
 import {MoviesList, PaginationComponent} from "../../components";
+import {useAppSelector} from "../../hooks";
 
 export const MoviesPage = () => {
-    const [totalPages, setTotalPages] = useState(null)
+    const {totalPages} = useAppSelector(state => state.movies)
 
-    const handleSetPages = (pages: number) => {
-        setTotalPages(pages)
-    }
 
     return (
         <section>
-            <MoviesList handleSetPages={handleSetPages}/>
-            <PaginationComponent total_pages={totalPages}/>
+            <MoviesList/>
+            <PaginationComponent totalPages={totalPages}/>
         </section>
     );
 };

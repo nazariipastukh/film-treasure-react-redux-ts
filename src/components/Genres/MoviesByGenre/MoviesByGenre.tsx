@@ -7,33 +7,30 @@ import {Movie} from "../../Movies";
 import styles from './MoviesByGenre.module.css'
 
 interface IProps {
-    handleSetPages: (pages: number) => void
     genreId: string
 }
 
-export const MoviesByGenre: FC<IProps> = ({handleSetPages, genreId}) => {
+export const MoviesByGenre: FC<IProps> = ({genreId}) => {
     const [movies, setMovies] = useState<IMovie[]>([])
-    const [showSkeleton, setShowSkeleton] = useState(false);
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
 
     useEffect(() => {
         setTimeout(() => {
-            setShowSkeleton(true);
+
         }, 1000);
 
         genresService.getByGenre(genreId, page).then(({data}) => {
             setMovies(data.results)
-            handleSetPages(data.total_pages)
-            setShowSkeleton(false)
+
         })
-    }, [genreId, handleSetPages, page])
+    }, [genreId, page])
 
     return (
         <section className={styles.wrapper}>
             <div className={styles.list}>
                 {
-                    movies.map(movie => <Movie movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
+                    movies.map(movie => <Movie movie={movie} key={movie.id}/>)
                 }
             </div>
         </section>

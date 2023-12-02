@@ -1,7 +1,7 @@
 import {FC} from "react";
 
 import {IActor} from "../../../../../interfaces/actorInterface";
-import {useAppSelector} from "../../../../../hooks/reduxHooks";
+import {useAppSelector} from "../../../../../hooks";
 import styles from './Actor.module.css'
 
 interface IProps {

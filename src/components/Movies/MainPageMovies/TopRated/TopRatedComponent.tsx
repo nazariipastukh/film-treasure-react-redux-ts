@@ -1,30 +1,23 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 import {MovieCard} from "../MovieCard";
-import {moviesService} from "../../../../services";
-import {useAppSelector} from "../../../../hooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "../../../../hooks";
+import {mainPageActions} from "../../../../redux/slices/mainPageMoviesSlice";
 import styles from '../MoviesBlockWrapper.module.css'
 
 export const TopRatedComponent = () => {
-    const [topMovies, setTopMovies] = useState([])
-    const [showSkeleton, setShowSkeleton] = useState(false);
     const {themeTrigger} = useAppSelector(state => state.theme)
+    const {topRated} = useAppSelector(state => state.mainPage)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        setTimeout(() => {
-            setShowSkeleton(true);
-        }, 1000);
-
-        moviesService.getTopRated().then(({data}) => {
-            setTopMovies(data.results.slice(0, 7))
-            setShowSkeleton(false)
-        })
+        dispatch(mainPageActions.getTopRated())
     }, [])
 
     return (
         <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
-                topMovies.map(movie => <MovieCard movie={movie} key={movie.id} />)
+                topRated.map(movie => <MovieCard movie={movie} key={movie.id} />)
             }
         </section>
     );

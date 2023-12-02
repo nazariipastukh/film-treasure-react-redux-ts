@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 import {genresService} from "../../../services";
 import {Genre} from "../Genre";
-import {useAppSelector} from "../../../hooks/reduxHooks";
+import {useAppSelector} from "../../../hooks";
 import styles from './GenresList.module.css'
 
 export const GenresList = () => {

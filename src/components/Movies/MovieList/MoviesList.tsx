@@ -1,40 +1,28 @@
-import {FC, useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useSearchParams} from "react-router-dom";
 
-import {moviesService} from "../../../services";
 import {Movie} from "../Movie";
-import {IMovie} from "../../../interfaces/movieInterface";
-import {useAppSelector} from "../../../hooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {moviesActions} from "../../../redux/slices/moviesSlice";
 import styles from './MoviesList.module.css'
 
-interface IProps {
-    handleSetPages: (pages: number) => void
-}
-
-export const MoviesList: FC<IProps> = ({handleSetPages}) => {
+export const MoviesList= () => {
     const {themeTrigger} = useAppSelector(state => state.theme)
-    const [movies, setMovies] = useState<IMovie[]>([])
-    const [showSkeleton, setShowSkeleton] = useState(false);
+    const {movies} = useAppSelector(state => state.movies)
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
 
-    useEffect(() => {
-        setTimeout(() => {
-            setShowSkeleton(true);
-        }, 1000);
+    const dispatch = useAppDispatch()
 
-        moviesService.getMovies(page).then(({data}) => {
-            setMovies(data.results)
-            handleSetPages(data.total_pages)
-            setShowSkeleton(false)
-        })
-    }, [handleSetPages, page])
+    useEffect(() => {
+        dispatch(moviesActions.getMovies(page))
+    }, [page])
 
     return (
         <section className={`${styles.wrapper} ${themeTrigger && styles.dark}`}>
             <div className={styles.list}>
                 {
-                    movies.map((movie) => <Movie movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
+                    movies.map((movie) => <Movie movie={movie} key={movie.id}/>)
                 }
             </div>
         </section>

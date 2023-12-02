@@ -1,30 +1,23 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 import {MovieCard} from "../MovieCard";
-import {moviesService} from "../../../../services";
-import {useAppSelector} from "../../../../hooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "../../../../hooks";
 import styles from "../MoviesBlockWrapper.module.css";
+import {mainPageActions} from "../../../../redux/slices/mainPageMoviesSlice";
 
 export const PopularComponent = () => {
-    const [popularMovies, setPopularMovies] = useState([])
-    const [showSkeleton, setShowSkeleton] = useState(false);
     const {themeTrigger} = useAppSelector(state => state.theme)
+    const {popular} = useAppSelector(state => state.mainPage)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        setTimeout(() => {
-            setShowSkeleton(true);
-        }, 1000);
-
-        moviesService.getPopular().then(({data}) => {
-            setPopularMovies(data.results.slice(0, 7))
-            setShowSkeleton(false)
-        })
+        dispatch(mainPageActions.getPopular())
     }, [])
 
     return (
         <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
-                popularMovies.map(movie => <MovieCard movie={movie} key={movie.id} />)
+                popular.map(movie => <MovieCard movie={movie} key={movie.id}/>)
             }
         </section>
     );

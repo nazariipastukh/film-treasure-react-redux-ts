@@ -1,21 +1,16 @@
-import {useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {MoviesByGenre, PaginationComponent} from "../../../components";
+import {useAppSelector} from "../../../hooks";
 
 export const MoviesByGenrePage = () => {
-    const [totalPages, setTotalPages] = useState(null)
-
+    const {totalPages} = useAppSelector(state => state.movies)
     const {id} = useParams()
-
-    const handleSetPages = (pages: number) => {
-        setTotalPages(pages)
-    }
 
     return (
         <div>
-            <MoviesByGenre genreId={id} handleSetPages={handleSetPages}/>
-            <PaginationComponent total_pages={totalPages}/>
+            <MoviesByGenre genreId={id}/>
+            <PaginationComponent totalPages={totalPages}/>
         </div>
     );
 };

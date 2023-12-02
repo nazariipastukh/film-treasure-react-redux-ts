@@ -1,7 +1,7 @@
 import {Outlet} from "react-router-dom";
 
 import {GenresList} from "../../components";
-import {useAppSelector} from "../../hooks/reduxHooks";
+import {useAppSelector} from "../../hooks";
 import styles from './GenresPage.module.css'
 
 export const GenresPage = () => {

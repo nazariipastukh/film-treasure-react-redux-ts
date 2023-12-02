@@ -1,33 +1,26 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect} from "react";
 
-import {moviesService} from "../../../services";
 import {MovieDetails} from "./MovieDetails";
-import {IMovieDetails} from "../../../interfaces/movieDetailsInterface";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {moviesActions} from "../../../redux/slices/moviesSlice";
 
 interface IProps {
     id: number
 }
 
 export const MovieDetailsComponent: FC<IProps> = ({id}) => {
-    const [movieDetails, setMovieDetails] = useState<IMovieDetails>(null)
-    const [showSkeleton, setShowSkeleton] = useState(false);
+    const {movieById} = useAppSelector(state => state.movies)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        setTimeout(() => {
-            setShowSkeleton(true);
-        }, 1000);
-
-        moviesService.getMovieById(id).then(({data}) => {
-            setMovieDetails(data)
-            setShowSkeleton(false)
-        })
+        dispatch(moviesActions.getMovieById(id))
     }, [id])
 
     return (
         <section>
             {
-                movieDetails && (
-                    <MovieDetails movieDetails={movieDetails} showSkeleton={showSkeleton}/>
+                movieById && (
+                    <MovieDetails movieDetails={movieById}/>
                 )
             }
         </section>

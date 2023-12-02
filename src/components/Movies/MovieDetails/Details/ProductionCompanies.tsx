@@ -1,7 +1,7 @@
 import {FC} from "react";
 
 import {ICompany} from "../../../../interfaces/companyInterface";
-import {useAppSelector} from "../../../../hooks/reduxHooks";
+import {useAppSelector} from "../../../../hooks";
 import styles from './Companies.module.css'
 
 interface IProps {

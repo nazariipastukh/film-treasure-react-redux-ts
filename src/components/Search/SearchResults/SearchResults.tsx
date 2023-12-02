@@ -4,32 +4,27 @@ import {useSearchParams} from "react-router-dom";
 import {IMovie} from "../../../interfaces/movieInterface";
 import {searchService} from "../../../services";
 import {Movie} from "../../Movies";
-import {useAppSelector} from "../../../hooks/reduxHooks";
+import {useAppSelector} from "../../../hooks";
 import styles from './SearchResults.module.css'
 
 interface IProps {
-    handleSetPages: (pages: number) => void
     inputValue: string
 }
 
-export const SearchResults: FC<IProps> = ({handleSetPages, inputValue}) => {
+export const SearchResults: FC<IProps> = ({inputValue}) => {
     const [movies, setMovies] = useState<IMovie[]>([])
-    const [showSkeleton, setShowSkeleton] = useState(false);
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
     const {themeTrigger} = useAppSelector(state => state.theme)
 
     useEffect(() => {
         setTimeout(() => {
-            setShowSkeleton(true);
         }, 1000);
 
         searchService.findMovie(inputValue, page).then(({data}) => {
             setMovies(data.results)
-            handleSetPages(data.total_pages)
-            setShowSkeleton(false)
         })
-    }, [handleSetPages, inputValue, page])
+    }, [inputValue, page])
 
     return (
         <section className={`${styles.resultsWrapper} ${themeTrigger && styles.darkWrapper}`}>
@@ -42,7 +37,7 @@ export const SearchResults: FC<IProps> = ({handleSetPages, inputValue}) => {
                             </p>
                         </article>
                     ) : (
-                        movies.map((movie) => <Movie movie={movie} key={movie.id} showSkeleton={showSkeleton}/>)
+                        movies.map((movie) => <Movie movie={movie} key={movie.id}/>)
                     )
                 }
             </section>

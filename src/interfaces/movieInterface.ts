@@ -14,3 +14,8 @@ export interface IMovie {
     vote_average: number
     vote_count: number
 }
+
+export interface IDataResponse {
+    results: IMovie[]
+    total_pages: number
+}
