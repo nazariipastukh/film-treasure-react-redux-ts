@@ -2,8 +2,8 @@ import {useEffect} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {useAppDispatch, useAppSelector} from "../../../../hooks";
+import {mainPageActions} from "../../../../redux";
 import styles from "../MoviesBlockWrapper.module.css";
-import {mainPageActions} from "../../../../redux/slices/mainPageMoviesSlice";
 
 export const PopularComponent = () => {
     const {themeTrigger} = useAppSelector(state => state.theme)

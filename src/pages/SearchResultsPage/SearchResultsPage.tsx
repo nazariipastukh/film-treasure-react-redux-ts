@@ -5,6 +5,7 @@ import {useAppSelector} from "../../hooks";
 
 export const SearchResultsPage = () => {
     const {totalPages} = useAppSelector(state => state.search)
+
     const {inputValue} = useParams()
 
     return (

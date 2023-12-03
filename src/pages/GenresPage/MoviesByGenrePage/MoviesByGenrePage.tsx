@@ -5,6 +5,7 @@ import {useAppSelector} from "../../../hooks";
 
 export const MoviesByGenrePage = () => {
     const {totalPages} = useAppSelector(state => state.genres)
+
     const {id} = useParams()
 
     return (

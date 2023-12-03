@@ -1,2 +1,7 @@
 export * from './castSlice'
 export * from './themeSlice'
+export * from './genresSlice'
+export * from './moviesSlice'
+export * from './searchSlice'
+export * from './mainPageMoviesSlice'
+export * from './loaderSlice'

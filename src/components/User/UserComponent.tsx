@@ -1,4 +1,4 @@
-import {useAppSelector} from "../../hooks/reduxHooks";
+import {useAppSelector} from "../../hooks";
 import styles from './User.module.css'
 
 export const UserComponent = () => {

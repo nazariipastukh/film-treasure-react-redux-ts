@@ -2,7 +2,7 @@ import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import styles from "../Details.module.css";
 
-export const SkeletonComponent = () => {
+export const LoaderComponent = () => {
     return (
         <section>
             <div className={styles.skeleton}>

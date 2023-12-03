@@ -1,9 +1,9 @@
 import {FC} from "react";
 import {NavLink} from "react-router-dom";
 
-import styles from './Genre.module.css'
 import {useAppSelector} from "../../../hooks";
 import {IGenre} from "../../../interfaces/genreInterface";
+import styles from './Genre.module.css'
 
 interface IProps {
     genre: IGenre

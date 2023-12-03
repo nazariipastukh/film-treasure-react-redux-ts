@@ -2,8 +2,8 @@ import {useEffect} from "react";
 
 import {Genre} from "../Genre";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {genresActions} from "../../../redux";
 import styles from './GenresList.module.css'
-import {genresActions} from "../../../redux/slices/genresSlice";
 
 export const GenresList = () => {
     const {themeTrigger} = useAppSelector(state => state.theme)

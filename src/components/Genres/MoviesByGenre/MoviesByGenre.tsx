@@ -3,7 +3,7 @@ import {useSearchParams} from "react-router-dom";
 
 import {Movie} from "../../Movies";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {genresActions} from "../../../redux/slices/genresSlice";
+import {genresActions} from "../../../redux";
 import styles from './MoviesByGenre.module.css'
 
 interface IProps {
@@ -13,6 +13,7 @@ interface IProps {
 export const MoviesByGenre: FC<IProps> = ({genreId}) => {
     const {moviesByGenre} = useAppSelector(state => state.genres)
     const dispatch = useAppDispatch()
+
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
 

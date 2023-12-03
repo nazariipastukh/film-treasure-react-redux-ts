@@ -14,7 +14,10 @@ export const ProductionCompanies: FC<IProps> = ({production}) => {
     return (
         <article className={styles.companyName}>
             {
-                production.map(company => <div className={themeTrigger && styles.darkCompanyName}><p>{company.name}</p></div>)
+                production.map((company, index) =>
+                    <div className={themeTrigger && styles.darkCompanyName} key={index}>
+                        <p>{company.name}</p>
+                    </div>)
             }
         </article>
     );

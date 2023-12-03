@@ -1,7 +1,7 @@
 import {Outlet} from "react-router-dom";
 
 import {Header} from "../components";
-import {useAppSelector} from "../hooks/reduxHooks";
+import {useAppSelector} from "../hooks";
 import styles from './Theme.module.css'
 
 export const MainLayout = () => {

@@ -1,8 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
+
 import {IDataResponse, IMovie} from "../../interfaces/movieInterface";
 import {moviesService} from "../../services";
-import {AxiosError} from "axios";
 import {IMovieDetails} from "../../interfaces/movieDetailsInterface";
+import {loaderActions} from "./loaderSlice";
 
 interface IState {
     movies: IMovie[]
@@ -18,26 +20,33 @@ const initialState: IState = {
 
 const getMovies = createAsyncThunk<IDataResponse, string>(
     'moviesSlice/getMovies',
-    async (page, {rejectWithValue}) => {
+    async (page, {rejectWithValue, dispatch}) => {
         try {
+            dispatch(loaderActions.setLoader(true))
             const {data} = await moviesService.getMovies(page)
             return data
+
         } catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response?.data)
+        } finally {
+            dispatch(loaderActions.setLoader(false))
         }
     }
 )
 
-const getMovieById = createAsyncThunk<IMovieDetails ,number> (
+const getMovieById = createAsyncThunk<IMovieDetails, number>(
     'moviesSlice/getMovieById',
-    async (id, {rejectWithValue}) => {
+    async (id, {rejectWithValue, dispatch}) => {
         try {
+            dispatch(loaderActions.setLoader(true))
             const {data} = await moviesService.getMovieById(id)
             return data
         } catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response?.data)
+        } finally {
+            dispatch(loaderActions.setLoader(false))
         }
     }
 )
@@ -57,7 +66,7 @@ const moviesSlice = createSlice({
         })
 })
 
-const {reducer: moviesReducer, actions} = moviesSlice
+const {reducer: moviesReducer} = moviesSlice
 
 const moviesActions = {
     getMovies,

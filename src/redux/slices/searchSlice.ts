@@ -1,7 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
+
 import {IDataResponse, IMovie} from "../../interfaces/movieInterface";
 import {searchService} from "../../services";
-import {AxiosError} from "axios";
+import {loaderActions} from "./loaderSlice";
 
 interface IProps {
     inputValue: string
@@ -18,15 +20,18 @@ const initialState: IState = {
     totalPages: null
 }
 
-const getMoviesBySearch = createAsyncThunk<IDataResponse, IProps >(
+const getMoviesBySearch = createAsyncThunk<IDataResponse, IProps>(
     'searchSlice/getMoviesBySearch',
-    async ({inputValue, page},{rejectWithValue}) => {
+    async ({inputValue, page}, {rejectWithValue, dispatch}) => {
         try {
+            dispatch(loaderActions.setLoader(true))
             const {data} = await searchService.findMovie(inputValue, page)
             return data
         } catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response?.data)
+        } finally {
+            dispatch(loaderActions.setLoader(false))
         }
     }
 )

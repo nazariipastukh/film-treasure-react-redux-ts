@@ -65,7 +65,7 @@
     display: flex;
 }
 
-.contentImg{
+.contentImg {
     height: 75vh;
     border-radius: 15px;
     margin-right: 2.8vw;
@@ -175,7 +175,7 @@
 }
 
 .links a:hover {
-    background-color: #e7f0fd;
+    background-color: #555555;
 }
 
 .popular {
@@ -191,7 +191,7 @@
     color: #f8f7f4;
 }
 
-.popular p{
+.popular p {
     color: #f8f7f4;
 }
 

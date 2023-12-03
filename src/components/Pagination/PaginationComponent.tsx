@@ -12,6 +12,7 @@ interface IProps {
 export const PaginationComponent: FC<IProps> = ({totalPages}) => {
     const [query, setQuery] = useSearchParams();
     const currentPage = +(query.get("page")) || 1;
+
     const {themeTrigger} = useAppSelector(state => state.theme)
 
     useEffect(() => {

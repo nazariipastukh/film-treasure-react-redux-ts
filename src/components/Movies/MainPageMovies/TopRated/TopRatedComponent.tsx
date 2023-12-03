@@ -2,7 +2,7 @@ import {useEffect} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {useAppDispatch, useAppSelector} from "../../../../hooks";
-import {mainPageActions} from "../../../../redux/slices/mainPageMoviesSlice";
+import {mainPageActions} from "../../../../redux";
 import styles from '../MoviesBlockWrapper.module.css'
 
 export const TopRatedComponent = () => {
@@ -17,7 +17,7 @@ export const TopRatedComponent = () => {
     return (
         <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
-                topRated.map(movie => <MovieCard movie={movie} key={movie.id} />)
+                topRated.map(movie => <MovieCard movie={movie} key={movie.id}/>)
             }
         </section>
     );

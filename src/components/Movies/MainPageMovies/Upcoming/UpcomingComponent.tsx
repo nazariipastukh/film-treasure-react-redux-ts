@@ -2,7 +2,7 @@ import {useEffect} from "react";
 
 import {MovieCard} from "../MovieCard";
 import {useAppDispatch, useAppSelector} from "../../../../hooks";
-import {mainPageActions} from "../../../../redux/slices/mainPageMoviesSlice";
+import {mainPageActions} from "../../../../redux";
 import styles from '../MoviesBlockWrapper.module.css'
 
 export const UpcomingComponent = () => {
@@ -17,7 +17,7 @@ export const UpcomingComponent = () => {
     return (
         <section className={`${styles.moviesBlockWrapper} ${themeTrigger && styles.darkWrapper}`}>
             {
-                upcoming.map(movie => <MovieCard movie={movie} key={movie.id} />)
+                upcoming.map(movie => <MovieCard movie={movie} key={movie.id}/>)
             }
         </section>
     );

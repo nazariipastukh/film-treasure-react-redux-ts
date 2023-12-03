@@ -2,7 +2,7 @@ import {FC, useEffect} from "react";
 
 import {MovieDetails} from "./MovieDetails";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {moviesActions} from "../../../redux/slices/moviesSlice";
+import {moviesActions} from "../../../redux";
 
 interface IProps {
     id: number

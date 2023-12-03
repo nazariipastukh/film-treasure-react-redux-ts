@@ -1,6 +1,6 @@
 import {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
-// import Skeleton from "@mui/material/Skeleton/Skeleton";
+import Skeleton from "@mui/material/Skeleton/Skeleton";
 
 import {StarRatingComponent} from "../../Rating";
 import {IMovie} from "../../../interfaces/movieInterface";
@@ -15,17 +15,19 @@ export const Movie: FC<IProps> = ({movie}) => {
     const {poster_path, vote_average, title, id} = movie
     const navigate = useNavigate()
     const [isActive, setIsActive] = useState(false)
+
     const {themeTrigger} = useAppSelector(state => state.theme)
+    const {loader} = useAppSelector(state => state.loader)
 
     return (
         <section className={styles.card}>
             {
-                // !showSkeleton ? (
-                //     <section>
-                //         <Skeleton animation="wave" variant="rounded" width={'19.5vw'} height={'60vh'}/>
-                //         <Skeleton animation="wave" variant="text" width={'19.5vw'} sx={{fontSize: '3rem'}}/>
-                //     </section>
-                // ) : (
+                loader ? (
+                    <section>
+                        <Skeleton animation="wave" variant="rounded" width={'19.5vw'} height={'60vh'}/>
+                        <Skeleton animation="wave" variant="text" width={'19.5vw'} sx={{fontSize: '3rem'}}/>
+                    </section>
+                ) : (
                     <div onMouseEnter={() => setIsActive(true)}
                          onMouseLeave={() => setIsActive(false)}
                          onClick={() => navigate(`/movie/${id}`, {state: id})}>
@@ -51,7 +53,7 @@ export const Movie: FC<IProps> = ({movie}) => {
                             </div>
                         }
                     </div>
-                // )
+                )
             }
         </section>
     );

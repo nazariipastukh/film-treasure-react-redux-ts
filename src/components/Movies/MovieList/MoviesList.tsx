@@ -3,16 +3,16 @@ import {useSearchParams} from "react-router-dom";
 
 import {Movie} from "../Movie";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {moviesActions} from "../../../redux/slices/moviesSlice";
+import {moviesActions} from "../../../redux";
 import styles from './MoviesList.module.css'
 
-export const MoviesList= () => {
+export const MoviesList = () => {
     const {themeTrigger} = useAppSelector(state => state.theme)
     const {movies} = useAppSelector(state => state.movies)
+    const dispatch = useAppDispatch()
+
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
-
-    const dispatch = useAppDispatch()
 
     useEffect(() => {
         dispatch(moviesActions.getMovies(page))

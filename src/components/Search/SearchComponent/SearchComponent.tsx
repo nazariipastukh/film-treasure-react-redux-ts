@@ -9,10 +9,9 @@ interface IFormData {
 }
 
 export const SearchComponent = () => {
-    const {reset, register, handleSubmit, formState: {isValid}} = useForm({
-        mode: 'onChange'
-    })
+    const {reset, register, handleSubmit, formState: {isValid}} = useForm({mode: 'onChange'})
     const navigate = useNavigate()
+
     const {themeTrigger} = useAppSelector(state => state.theme)
 
     const search = (formData: IFormData) => {

@@ -35,7 +35,7 @@ const castSlice = createSlice({
         })
 })
 
-const {reducer: castReducer, actions} = castSlice
+const {reducer: castReducer} = castSlice
 
 const castActions = {
     getActors

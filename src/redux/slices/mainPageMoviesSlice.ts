@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, isFulfilled, isPending} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
 
 import {IMovie} from "../../interfaces/movieInterface";
@@ -8,14 +8,16 @@ interface IState {
     nowPlaying: IMovie[],
     popular: IMovie[],
     topRated: IMovie[],
-    upcoming: IMovie[]
+    upcoming: IMovie[],
+    loaderTrigger: boolean
 }
 
 const initialState: IState = {
     nowPlaying: [],
     popular: [],
     topRated: [],
-    upcoming: []
+    upcoming: [],
+    loaderTrigger: false
 }
 
 const getNowPlaying = createAsyncThunk<IMovie[]>(
@@ -87,9 +89,15 @@ const mainPageSlice = createSlice({
         .addCase(getPopular.fulfilled, (state, action) => {
             state.popular = action.payload
         })
+        .addMatcher(isPending(getPopular, getUpcoming, getTopRated, getNowPlaying), state => {
+            state.loaderTrigger = true
+        })
+        .addMatcher(isFulfilled(getPopular, getUpcoming, getTopRated, getNowPlaying), state => {
+            state.loaderTrigger = false
+        })
 })
 
-const {reducer: mainPageReducer, actions} = mainPageSlice
+const {reducer: mainPageReducer} = mainPageSlice
 
 const mainPageActions = {
     getNowPlaying,

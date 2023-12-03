@@ -3,8 +3,8 @@ import {useSearchParams} from "react-router-dom";
 
 import {Movie} from "../../Movies";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {searchActions} from "../../../redux";
 import styles from './SearchResults.module.css'
-import {searchActions} from "../../../redux/slices/searchSlice";
 
 interface IProps {
     inputValue: string
@@ -14,6 +14,7 @@ export const SearchResults: FC<IProps> = ({inputValue}) => {
     const {themeTrigger} = useAppSelector(state => state.theme)
     const {moviesBySearch} = useAppSelector(state => state.search)
     const dispatch = useAppDispatch()
+
     const [query] = useSearchParams({page: '1'})
     const page = query.get('page')
 

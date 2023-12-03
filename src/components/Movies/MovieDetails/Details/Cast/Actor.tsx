@@ -10,6 +10,7 @@ interface IProps {
 
 export const Actor: FC<IProps> = ({actor}) => {
     const {original_name, character, profile_path} = actor
+
     const {themeTrigger} = useAppSelector(state => state.theme)
 
     return (
